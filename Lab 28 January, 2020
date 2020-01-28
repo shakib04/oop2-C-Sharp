@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LabProblemSolving
+{
+    //struct
+    struct Address
+    {
+        //member variable or field
+        public byte houseNo;
+        public byte roadNo;
+        public ushort postalCode;
+        public string district;
+
+        public void PrintAddres()
+        {
+            Console.WriteLine("{0}", houseNo);
+            Console.WriteLine("{0}", roadNo);
+            Console.WriteLine("{0}", postalCode);
+            Console.WriteLine("{0}", district);
+        }
+        
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //string input;
+            //input = Console.ReadLine();
+            //Console.WriteLine("Output: {0}",input);
+
+            int number;
+            //number = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Output: {0}",number);
+
+            //number = Int32.Parse(Console.ReadLine());
+            //Console.WriteLine("Output: {0}", number);
+
+            //type casting 
+
+            int ax = 10;
+            short bx = 20;
+            ax = bx;   //implicit
+            bx = (short)ax; //explicit (specify the destination type)
+
+            //Struct type
+
+            Address addressOne;
+            addressOne.houseNo = 5;
+            addressOne.roadNo = 102;
+            addressOne.postalCode = 1290;
+            addressOne.district = "Dhaka";
+
+            addressOne.PrintAddres();
+
+            Address addressTwo = new Address();
+
+            //Console.WriteLine("{0}", addressOne.houseNo);
+            //Console.WriteLine("{0}", addressOne.roadNo);
+            //Console.WriteLine("{0}", addressOne.postalCode);
+            //Console.WriteLine("{0}", addressOne.district);
+
+        }
+    }
+}
