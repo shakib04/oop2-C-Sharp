@@ -1,0 +1,163 @@
+//Student Class
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LabPractice
+{
+    struct StudentAddress //composite type
+    {
+       private byte roadNo;
+       private byte houseNo;
+       private ushort postalCode;
+       private string district;
+
+       public StudentAddress(byte roadNo, byte houseNo, ushort postalCode, string district)
+       {
+           this.roadNo = roadNo;
+           this.houseNo = houseNo;
+           this.postalCode = postalCode;
+           this.district = district;
+       }
+
+       public void PrintAddress()
+       {
+           Console.WriteLine("----Student's Address----");
+           Console.WriteLine("Student's Road No: {0}", roadNo);
+           Console.WriteLine("Student's House No: {0}", roadNo);
+           Console.WriteLine("Student's Postal Code No: {0}", postalCode);
+           Console.WriteLine("Student's District Name: {0}", district);
+       }
+
+       //public byte GetRoadNo()
+       //{
+       //    return this.roadNo;
+       //}
+
+       //public byte GetHouseNo()
+       //{
+       //    return this.houseNo;
+       //}
+
+       //public ushort GetPostalCode()
+       //{
+       //    return this.postalCode;
+       //}
+
+       //public void SetRoadNo(byte roadNo)
+       //{
+       //    this.roadNo = roadNo;
+       //}
+
+       //public void SetHouseNo(byte houseNo)
+       //{
+       //    this.houseNo = houseNo;
+       //}
+
+       //public void SetPostalCode(byte postalCode)
+       //{
+       //    this.postalCode = postalCode;
+       //}
+    }
+
+    class Student
+    {
+
+        StudentAddress addressOne = new StudentAddress();
+
+
+        private int id;
+        private string name;
+        
+
+        public Student(int id, string name, StudentAddress addressOne)
+        {
+            this.id = id;
+            this.name = name;
+            this.addressOne.roadNo = addressOne.roadNo;
+            this.addressOne.houseNo = addressOne.houseNo;
+            this.addressOne.postalCode = addressOne.postalCode;
+            this.addressOne.district = addressOne.district;
+        }
+
+
+        //get methods
+        public int GetId()
+        {
+            return this.id;
+        }
+
+        public string GetName()
+        {
+            return this.name;
+        }
+
+        public StudentAddress GetStudentAddress()
+        {
+            return this.addressOne;
+        }
+
+
+
+        //set Methods
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
+
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+
+        public void SetStudentAddress(StudentAddress addressOne)
+        {
+            this.addressOne.roadNo = addressOne.roadNo;
+            this.addressOne.houseNo = addressOne.houseNo;
+            this.addressOne.postalCode = addressOne.postalCode;
+            this.addressOne.district = addressOne.district;
+        }
+
+        public void ShowStudentInfo()
+        {
+            Console.WriteLine("Stuents Information\n----------");
+            Console.WriteLine("Student's Id: {0}", this.id);
+            Console.WriteLine("Students's Name: {0}", this.name);
+        }
+    }
+}
+
+
+
+
+
+//// Program Class
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LabPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StudentAddress studentAddressOne = new StudentAddress(10, 20, 4040, "dhaka");
+            Student s1 = new Student(100, "Bruce", studentAddressOne);
+            s1.ShowStudentInfo();
+            StudentAddress studentAddressTwo = new StudentAddress(10,20,4040,"Chittagong");
+            s1.SetStudentAddress(studentAddressTwo);
+            s1.ShowStudentInfo();
+            //s1.GetId();
+            //s1.ShowStudentInfo();
+        }
+    }
+}
